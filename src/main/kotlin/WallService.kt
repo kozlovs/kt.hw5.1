@@ -10,25 +10,9 @@ object WallService {
     fun update(post: Post): Boolean {
         for ((index, thisPost) in posts.withIndex()) {
             if (thisPost.id == post.id) {
-                posts[index] = thisPost.copy(
-                    fromId = thisPost.fromId,
-                    createdBy = thisPost.createdBy,
-                    replyOwnerId = thisPost.replyOwnerId,
-                    replyPostId = thisPost.replyPostId,
-                    signerId = thisPost.signerId,
-                    text = thisPost.text,
-                    friendsOnly = thisPost.friendsOnly,
-                    comments = thisPost.comments,
-                    likes = thisPost.likes,
-                    reposts = thisPost.reposts,
-                    postType = thisPost.postType,
-                    canPin = thisPost.canPin,
-                    canDelete = thisPost.canDelete,
-                    canEdit = thisPost.canEdit,
-                    isPinned = thisPost.isPinned,
-                    markedAsAds = thisPost.markedAsAds,
-                    isFavorite = thisPost.isFavorite,
-                    id = getId()
+                posts[index] = post.copy(
+                    ownerId = thisPost.ownerId,
+                    date = thisPost.date
                 )
                 return true
             }

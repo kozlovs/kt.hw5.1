@@ -14,13 +14,13 @@ class WallServiceTest {
     fun updateExists() {
         val post = WallService.add(Post(0L, 0L, 0L, 0L, 0L, 0L))
         val exists = WallService.update(post.copy(text = "another text"))
-        assert(exists)
+        assertTrue(exists)
     }
 
     @Test
     fun updateNotExists() {
         val post = WallService.add(Post(0L, 0L, 0L, 0L, 0L, 0L))
         val exists = WallService.update(post.copy(text = "another text", id = post.id + 1))
-        assert(!exists)
+        assertFalse(exists)
     }
 }
